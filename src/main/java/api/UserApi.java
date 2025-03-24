@@ -13,9 +13,11 @@ public class UserApi {
                 .body(userData)
                 .post(BASE_URL);
     }
+
     public static Response getUser(String userId) {
         return RestAssured.get(BASE_URL + "/" + userId);
     }
+
     public static Response updateUser(String userId, Map<String, Object> updatedData) {
         return RestAssured.given()
                 .auth().basic("user", "password")
@@ -23,8 +25,10 @@ public class UserApi {
                 .body(updatedData)
                 .put(BASE_URL + "/" + userId);
     }
-    public static Response getUsersWithoutAuth() {
-        return RestAssured.get(BASE_URL);
+
+    public static Response deleteUser(String userId) {
+        return RestAssured.given()
+                .auth().basic("user", "password")
+                .delete(BASE_URL + "/" + userId);
     }
-    
 }
