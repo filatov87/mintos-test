@@ -23,7 +23,8 @@ public class UserApi {
                 .body(updatedData)
                 .put(BASE_URL + "/" + userId);
     }
-    public static Response deleteUser(String userId) {
-        return RestAssured.delete(BASE_URL + "/" + userId);
+    public static Response getUsersWithoutAuth() {
+        return RestAssured.get(BASE_URL);
     }
+    
 }

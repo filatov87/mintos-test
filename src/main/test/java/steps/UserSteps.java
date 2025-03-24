@@ -30,4 +30,31 @@ public class UserSteps {
         response = UserApi.deleteUser(userId);
         Assertions.assertEquals(204, response.statusCode(), "User deletion failed!");
     }
+
+    @When("I create a user with missing {string}")
+    public void createUserWithMissingField(String fieldName) {
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("firstName", "John");
+        userData.put("lastName", "Doe");
+        userData.put("email", "test@example.com");
+    
+        userData.remove(fieldName); // Simulate missing field
+        response = UserApi.createUser(userData);
+        Assertions.assertEquals(400, response.statusCode(), "Expected 400 for invalid input!");
+    }
+    
+    @When("I fetch a user with an invalid ID")
+    public void fetchInvalidUser() {
+        response = UserApi.getUser("invalid-id");
+        Assertions.assertEquals(404, response.statusCode(), "Expected 404 for non-existent user!");
+    }
+    
+    @When("I fetch all users without authentication")
+    public void fetchWithoutAuth() {
+        response = RestAssured.given()
+                    .header("Content-Type", "application/json")
+                    .get(UserApi.BASE_URL); // Missing auth headers
+        Assertions.assertEquals(401, response.statusCode(), "Expected 401 for unauthorized access!");
+    }
+     
 }
