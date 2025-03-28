@@ -1,24 +1,20 @@
-# API Automation Testing with Cucumber & RestAssured
+# User API Automation Tests
 
-## Setup & Run
-### Clone Repo
-```sh
-git clone https://github.com/your-repo/api-automation.git
-cd api-automation
-```
-### Run Tests via Command Line
-```sh
-mvn clean test
-```
-### Run Tests via IDE
-- Open `TestRunner.java`
-- Click **Run** ▶
+Automated testing for CRUD operations using Java, Cucumber, and RestAssured.
 
-## Expected Output
-```sh
-Creating user: John Doe
-User created successfully with ID: 12345
-Fetching user with ID: 12345
-Checking status code: Expected 200, Actual 200
-...
+## ✅ Scenarios covered
+- Create user (valid/invalid)
+- Get user
+- Update user
+- Delete user
+- Non-existing user handling
+
+## 🛠 Setup
+- Java 11+
+- Maven
+- API running at `http://localhost:8080/api`
+
+## ▶️ Run tests
+```bash
+mvn test
 ```
