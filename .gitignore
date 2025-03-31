@@ -1,0 +1,13 @@
+mappings/create-user-invalid.json
+mappings/create-user.json
+mappings/delete-user.json
+mappings/get-nonexisting-user.json
+mappings/get-user.json
+mappings/update-user.json
+target/cucumber-report.html
+target/*
+target/surefire-reports/runners.TestRunner.txt
+target/cucumber-report.html
+target/surefire-reports/TEST-runners.TestRunner.xml
+target/test-classes/runners/TestRunner.class
+target/test-classes/steps/UserStepDefs.class
